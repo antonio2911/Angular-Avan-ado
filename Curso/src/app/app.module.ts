@@ -4,7 +4,11 @@ import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
 //para funcionar os formularios reativos importa o reactforms
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
-
+import { CustomFormsModule } from 'ng2-validation'
+//formatação mascara
+import { TextMaskModule } from 'angular2-text-mask';
+//validações
+import { NgBrazil } from 'ng-brazil'
 import { AppComponent } from './app.component';
 import { MenuComponent } from './navegacao/menu/menu.component';
 import { HomeComponent } from './navegacao/home/home.component';
@@ -26,6 +30,9 @@ import { CadastroComponent } from './demos/reactforms/cadastro/cadastro.componen
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    NgBrazil,
+    TextMaskModule,
+    CustomFormsModule,
     [RouterModule.forRoot(rootRouterConfig, { useHash: false})]
   ],
   providers: [
