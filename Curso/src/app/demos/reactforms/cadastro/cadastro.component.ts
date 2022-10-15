@@ -16,10 +16,7 @@ export class CadastroComponent implements OnInit {
 cadastroGroup: FormGroup
 usuario: Usuario
 dadosFormJson:string
-<<<<<<< HEAD
-=======
 public MASKS = MASKS;
->>>>>>> 93e6e34 (Pacotes validation e configuração inicial das validações)
 
 constructor(private fb:FormBuilder){}
 ngOnInit()
