@@ -1,47 +1,78 @@
 <div class="container main-container">
     <h4>Demo Cadastro</h4>
     <hr>
-    <form novalidate>
+    <form novalidate [formGroup]="cadastroGroup" (ngSubmit)="adicionarUsuario()">
         <div class="form-horizontal">
 
             <div class="form-group">
                 <label class="col-md-2 control-label" for="nome">Nome Completo</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" id="nome" placeholder="Nome (Requerido)">
+
+                    <input formControlName="nome" type="text" class="form-control" id="nome" placeholder="Nome (Requerido)"
+                    [ngClass]="{'is-invalid': this.cadastroGroup
+                    .get('nome').errors 
+                    && (this.cadastroGroup.get('nome').dirty 
+                    || this.cadastroGroup.get('nome').touched)}">
+
+                    <span class="text-danger" 
+                    *ngIf="this.cadastroGroup.get('nome')?.errors?.required &&(this.cadastroGroup.get('nome').touched && this.cadastroGroup.get('nome').dirty)">
+                        <p>Preencha o campo nome</p>
+                    </span>
+
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-md-2 control-label">CPF</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" id="cpf" placeholder="CPF (Requerido)">
+                    <input type="text" class="form-control" id="cpf" placeholder="CPF (Requerido)" formControlName="cpf">
                 </div>
             </div>
-
+<!--Exemplo so no versionamento de validação basica de email-->
             <div class="form-group">
                 <label class="col-md-2 control-label">Email</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" id="email" placeholder="E-mail (Requerido)">
+                    <input type="text" class="form-control" id="email" placeholder="E-mail (Requerido)" formControlName="email">
+                    
+                    <span class="text-danger" 
+                        *ngIf="this.cadastroGroup.get('email')?.errors?.required &&(this.cadastroGroup.get('email').touched && this.cadastroGroup.get('email').dirty)">
+                            <p>E-mail Obrigatorio</p>
+                        </span>
+
+                        <span class="text-danger" 
+                        *ngIf="this.cadastroGroup.get('email')?.errors?.email &&(this.cadastroGroup.get('email').touched && this.cadastroGroup.get('email').dirty)">
+                            <p>Formato De E-mail Incorreto!</p>
+                        </span>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-md-2 control-label">Senha</label>
                 <div class="col-md-10">
-                    <input type="password" class="form-control" id="senha" placeholder="Senha (Requerida)">
+                    <input type="password" class="form-control" id="senha" placeholder="Senha (Requerida)" formControlName="senha">
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-md-2 control-label">Confirme a senha</label>
                 <div class="col-md-10">
-                    <input type="password" class="form-control" id="senhaConfirmacao" placeholder="Confirme a senha (Requerido)">
+                    <input type="password" class="form-control" id="senhaConfirmacao" placeholder="Confirme a senha (Requerido)" formControlName="confirmaSenha">
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-md-4 col-md-offset-2">
-                    <span><button class="btn btn-success" id="registrar" type="submit">Registrar</button></span>
+                    <!--Submeter para o formulario e depois fazer oque? tem que construir um ngsubmit no forms-->
+                    <span><button class="btn btn-success" id="registrar" type="submit" [disabled]="!this.cadastroGroup.valid">Registrar</button></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-4">
+                    <p>formulario Valido: {{this.cadastroGroup.valid}}</p>
+                     <p>formulario Tocado: {{this.cadastroGroup.touched}}</p>
+                    <p>formulario sujo: {{this.cadastroGroup.dirty}}</p>
+                    <p>formulario Result: {{this.dadosFormJson}}</p>
                 </div>
             </div>
         </div>
