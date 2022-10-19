@@ -1,27 +1,71 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
+import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from './models';
-<<<<<<< HEAD
-=======
 import { MASKS, NgBrazilValidators } from 'ng-brazil';
 import { CustomValidators } from 'ng2-validation';
->>>>>>> 93e6e34 (Pacotes validation e configuração inicial das validações)
+import { DisplayMessage, GenericValidation, ValidarMensagem } from './genericsFormValidation';
+import { fromEvent, merge, Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
   styles: []
 })
-export class CadastroComponent implements OnInit {
+export class CadastroComponent implements OnInit, AfterViewInit {
+
+  @ViewChildren(FormControlName, {read: ElementRef}) formInputElements: ElementRef[];
+
 cadastroGroup: FormGroup
 usuario: Usuario
 dadosFormJson:string
 public MASKS = MASKS;
 
-constructor(private fb:FormBuilder){}
+validationMessage: ValidarMensagem
+genercValidator: GenericValidation
+displayMessage: DisplayMessage = {}
+
+constructor(private fb:FormBuilder){
+  this.validationMessage = {
+    nome: {
+      required: 'O nome e requirido',
+      minLength: 'O nome precisa ter no minino 2 caracters',
+      maxLength: 'O nome precisa ter no maximo 150 caracters'
+    },
+    cpf: {
+      required: 'CPF e obrigatorio',
+      cpf: 'CPF em formato inválido!'
+    },
+    email: {
+      required: 'Informe o e-mail',
+      email: 'E-mail inválido'
+    },
+    senha: {
+      required: 'Informe a senha',
+      rangeLength: 'A senha deve possuir entre 6 e 15 caracteres'
+    },
+    confirmaSenha: {
+      required: 'Informe a senha novamente',
+      rangeLength: ' senha deve possuir entre 6 e 15 caracteres',
+      equalTo: 'As senhas não conferem'
+    }
+  }
+  this.genercValidator = new GenericValidation(this.validationMessage);
+}
+// metodo do angular e carregado no final apos a renderização de toda a pagina.
+  ngAfterViewInit(): void {
+    let controleDoEventoBlurs: Observable<any>[] = this.formInputElements
+    .map((formControl: ElementRef) => fromEvent(formControl.nativeElement, 'blur'))
+    
+    merge(...controleDoEventoBlurs).subscribe(()=>{
+      this.validationMessage = this.genercValidator.processarMensagem(this.cadastroGroup);
+    })
+  }
+
+
 ngOnInit()
 {
-<<<<<<< HEAD
+
 //com formBuilder
 this.cadastroGroup = this.fb.group({
   nome: ['', Validators.required],
@@ -29,19 +73,18 @@ this.cadastroGroup = this.fb.group({
   email: ['', [Validators.required,Validators.email]],
   senha: [''],
   confirmaSenha:['']
-=======
+})
   // nescessario para fazer a comparação da senha
   let senha = new FormControl('',[Validators.required,CustomValidators.rangeLength([8,15])])
   let senhaconfirmacao = new FormControl('',[Validators.required,CustomValidators.rangeLength([8,15]),CustomValidators.equalTo(senha)])
   //
 //com formBuilder
 this.cadastroGroup = this.fb.group({
-  nome: ['', Validators.required],
+  nome: ['', [Validators.required, Validators.minLength(2)]],
   cpf: ['', [Validators.required, NgBrazilValidators.cpf]],
   email: ['', [Validators.required,Validators.email]],
   senha: senha,
   confirmaSenha: senhaconfirmacao
->>>>>>> 93e6e34 (Pacotes validation e configuração inicial das validações)
 })
 }  
 
