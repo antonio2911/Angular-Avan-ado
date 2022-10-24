@@ -16,7 +16,7 @@ processarMensagem(lista: FormGroup):{[key:string]:string }{
             }else{
                 if(this.validar[controleChaveValor]){
                     mensagem[controleChaveValor] = '';
-                    if((propriedade.dirty || propriedade.touched) && propriedade.valid){
+                    if((propriedade.dirty || propriedade.touched) && propriedade.errors){
                         Object.keys(propriedade.errors).map(mensagemDaChave => {
                             if(this.validar[controleChaveValor][mensagemDaChave]){
                                 mensagem[controleChaveValor] += this.validar[controleChaveValor][mensagemDaChave]

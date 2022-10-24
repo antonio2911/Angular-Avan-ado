@@ -9,54 +9,61 @@
                 <div class="col-md-10">
 
                     <input formControlName="nome" type="text" class="form-control" id="nome" placeholder="Nome (Requerido)"
-                    [ngClass]="{'is-invalid': this.cadastroGroup
-                    .get('nome').errors 
-                    && (this.cadastroGroup.get('nome').dirty 
-                    || this.cadastroGroup.get('nome').touched)}">
-
-                    <span class="text-danger" 
-                    *ngIf="this.cadastroGroup.get('nome')?.errors?.required &&(this.cadastroGroup.get('nome').touched && this.cadastroGroup.get('nome').dirty)">
-                        <p>Preencha o campo nome</p>
+                    [ngClass]="{'is-invalid': displayMessage.nome}">
+                    
+                    <span class="text-danger" *ngIf="displayMessage.nome">
+                        <p [innerHTML]="displayMessage.nome"></p>
                     </span>
-
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-md-2 control-label">CPF</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" id="cpf" placeholder="CPF (Requerido)" formControlName="cpf" [textMask]="{mask: MASKS.cpf.textMask}">
+                    <input type="text" class="form-control" id="cpf" placeholder="CPF (Requerido)" 
+                    formControlName="cpf" [textMask]="{mask: MASKS.cpf.textMask}" 
+                    [ngClass]="{'is-invalid': displayMessage.cpf}">
+
+                    <span class="text-danger" *ngIf="displayMessage.cpf">
+                        <p [innerHTML]="displayMessage.cpf"></p>
+                    </span>
                 </div>
             </div>
-<!--Exemplo so no versionamento de validação basica de email-->
+
             <div class="form-group">
                 <label class="col-md-2 control-label">Email</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" id="email" placeholder="E-mail (Requerido)" formControlName="email">
+                    <input type="text" class="form-control" id="email" placeholder="E-mail (Requerido)" formControlName="email"
+                    [ngClass]="{'is-invalid': displayMessage.email}">
                     
-                    <span class="text-danger" 
-                        *ngIf="this.cadastroGroup.get('email')?.errors?.required &&(this.cadastroGroup.get('email').touched && this.cadastroGroup.get('email').dirty)">
-                            <p>E-mail Obrigatorio</p>
-                        </span>
-
-                        <span class="text-danger" 
-                        *ngIf="this.cadastroGroup.get('email')?.errors?.email &&(this.cadastroGroup.get('email').touched && this.cadastroGroup.get('email').dirty)">
-                            <p>Formato De E-mail Incorreto!</p>
-                        </span>
+                    <span class="text-danger" *ngIf="displayMessage.email">
+                        <p [innerHTML]="displayMessage.email"></p>
+                    </span>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-md-2 control-label">Senha</label>
                 <div class="col-md-10">
-                    <input type="password" class="form-control" id="senha" placeholder="Senha (Requerida)" formControlName="senha">
+                    <input type="password" class="form-control" id="senha" placeholder="Senha (Requerida)" formControlName="senha"
+                    [ngClass]="{'is-invalid': displayMessage.senha}">
+
+                    <span class="text-danger" *ngIf="displayMessage.senha">
+                        <p [innerHTML]="displayMessage.senha"></p>
+                    </span>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-md-2 control-label">Confirme a senha</label>
                 <div class="col-md-10">
-                    <input type="password" class="form-control" id="senhaConfirmacao" placeholder="Confirme a senha (Requerido)" formControlName="confirmaSenha">
+                    <input type="password" class="form-control" id="senhaConfirmacao" 
+                    placeholder="Confirme a senha (Requerido)" formControlName="confirmaSenha"
+                    [ngClass]="{'is-invalid': displayMessage.confirmaSenha}">
+
+                    <span class="text-danger" *ngIf="displayMessage.confirmaSenha">
+                        <p [innerHTML]="displayMessage.confirmaSenha"></p>
+                    </span>
                 </div>
             </div>
 
