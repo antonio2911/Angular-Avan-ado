@@ -1,23 +1,16 @@
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
-<p>produto-dashboard works!</p>
+<div class="container main-container">
+  <h1 #testeViewChild>Lista Produtos</h1>
+  <produto-contador [produtos]="produtos"></produto-contador>
+  <div class="row text-center">
+    <produto-card-detalhe
+      class="col-md-4"
+      *ngFor="let produto of produtos"
+      [produto]="produto"
+      (status)="mudarStatus($event)"
+    >
+      <!--  <h5>informação dentro da tag e lida pelo ng-content</h5>-->
+      <h5 class="corre">Avisa-me quando acabar</h5>
+      <h5 class="acabou">produto esgotado</h5>
+    </produto-card-detalhe>
+  </div>
+</div>
