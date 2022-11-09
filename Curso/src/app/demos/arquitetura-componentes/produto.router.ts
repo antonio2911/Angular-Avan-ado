@@ -15,6 +15,7 @@ const produtoRotas: Routes = [
         path: ':estado',
         component: ProdutoDashBoardComponent,
         resolve: { produtos: ProdutosResolve },
+        data: { teste: 'informacao' },
       },
       { path: 'editar/:id', component: EditarProdutoComponent },
     ],
