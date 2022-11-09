@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 
 //para funcionar os formularios reativos importa o reactforms
-import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
-import { CustomFormsModule } from 'ng2-validation'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
 //formatação mascara
 import { TextMaskModule } from 'angular2-text-mask';
 //validações
-import { NgBrazil } from 'ng-brazil'
+import { NgBrazil } from 'ng-brazil';
 //Modulos da aplicação
 import { AppComponent } from './app.component';
 import { SobreComponent } from './institucional/sobre/sobre.component';
@@ -18,11 +18,7 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
 import { AppRoutingModule } from './app.routes';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SobreComponent,
-    CadastroComponent,
-  ],
+  declarations: [AppComponent, SobreComponent, CadastroComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -31,11 +27,11 @@ import { AppRoutingModule } from './app.routes';
     TextMaskModule,
     CustomFormsModule,
     NavegacaoModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
-    {provide: APP_BASE_HREF, useValue: '/'}
+    //{ provide: APP_BASE_HREF, useValue: '/' }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

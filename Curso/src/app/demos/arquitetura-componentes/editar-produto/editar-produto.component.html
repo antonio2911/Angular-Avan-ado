@@ -1,0 +1,28 @@
+<div class="container main-container">
+  <div class="card h-100">
+    <div style="align-content: center">
+      <img
+        src="/assets/{{ produto.imagem }}"
+        alt=""
+        height="164px"
+        width="253px"
+      />
+    </div>
+    <h4 class="card-title">{{ produto.nome | titlecase }}</h4>
+    <div [ngSwitch]="produto.ativo">
+      <p *ngSwitchCase="true">Em Estoque</p>
+      <p *ngSwitchCase="false">Fora de Estoque</p>
+    </div>
+
+    <div class="card-body" *ngIf="produto.ativo">
+      <div>
+        <h4>{{ produto.valor | currency: 'BRL':true:'1.2-2':'pt' }}</h4>
+        <ng-content select=".corre"></ng-content>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <a (click)="salvar()" class="btn btn-primary">Salvar</a>
+    </div>
+  </div>
+</div>

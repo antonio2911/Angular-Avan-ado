@@ -30,6 +30,11 @@
         (click)="emitirEvento()"
         >Botão</a
       >
+      <!-- so inserir esse botão na ultima aula -->
+      &nbsp;
+      <a [routerLink]="['editar/', produto.id]" class="btn btn-primary"
+        >Editar</a
+      >
     </div>
   </div>
 </div>

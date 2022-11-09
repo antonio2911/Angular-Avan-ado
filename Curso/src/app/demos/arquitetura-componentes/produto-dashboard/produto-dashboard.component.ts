@@ -13,6 +13,7 @@ import { registerLocaleData } from '@angular/common';
 import { fromEvent, Observable } from 'rxjs';
 import { ProdutoContadorComponent } from '../components/produto-contador.component';
 import { ProdutoDetalheComponent } from '../components/produto-card-detalhe.componet';
+import { ActivatedRoute } from '@angular/router';
 registerLocaleData(localePt, 'pt');
 
 @Component({
@@ -30,53 +31,10 @@ export class ProdutoDashBoardComponent implements OnInit, AfterViewInit {
   botoes: QueryList<ProdutoDetalheComponent>;
 
   produtos: Produto[];
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.produtos = [
-      {
-        id: 1,
-        nome: 'teste',
-        ativo: true,
-        imagem: 'celular.jpg',
-        valor: 300,
-      },
-      {
-        id: 2,
-        nome: 'teste',
-        ativo: true,
-        imagem: 'crossplat.jpg',
-        valor: 300,
-      },
-      {
-        id: 3,
-        nome: 'teste',
-        ativo: true,
-        imagem: 'gopro.jpg',
-        valor: 300,
-      },
-      {
-        id: 4,
-        nome: 'teste',
-        ativo: false,
-        imagem: 'headset.jpg',
-        valor: 300,
-      },
-      {
-        id: 5,
-        nome: 'teste',
-        ativo: true,
-        imagem: 'laptop.jpg',
-        valor: 300,
-      },
-      {
-        id: 6,
-        nome: 'teste',
-        ativo: false,
-        imagem: 'monitor.jpg',
-        valor: 300,
-      },
-    ];
+    this.produtos = this.route.snapshot.data['produtos'];
   }
 
   ngAfterViewInit(): void {
