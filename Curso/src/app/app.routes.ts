@@ -4,18 +4,32 @@ import { SobreComponent } from './institucional/sobre/sobre.component';
 import { CadastroComponent } from './demos/reactforms/cadastro/cadastro.component';
 import { NgModule } from '@angular/core';
 import { NotFoundComponent } from './navegacao/notFound.component';
+import { AuthGuard } from './services/app-guard';
+import { CadastroGuard } from './services/cadastros-guard';
 
 const rootRouterConfig: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'sobre', component: SobreComponent },
-  { path: 'cadastro', component: CadastroComponent },
+  {
+    path: 'cadastro',
+    component: CadastroComponent,
+    canDeactivate: [CadastroGuard],
+  },
   {
     path: 'produtos',
     loadChildren: () =>
       import('./demos/arquitetura-componentes/produto.module').then(
         (m) => m.ProdutoModule
       ),
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then((modulo) => modulo.AdminModule),
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard],
+    // canLoad devine se uma parte da aplicação deve ser carregada ou não.
   },
   { path: '**', component: NotFoundComponent },
   //loadchildren () => import(caminho do modulo)

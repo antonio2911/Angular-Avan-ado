@@ -16,6 +16,8 @@ import { CadastroComponent } from './demos/reactforms/cadastro/cadastro.componen
 import { NavegacaoModule } from './navegacao/navegacao.module';
 //Rota
 import { AppRoutingModule } from './app.routes';
+import { AuthGuard } from './services/app-guard';
+import { CadastroGuard } from './services/cadastros-guard';
 
 @NgModule({
   declarations: [AppComponent, SobreComponent, CadastroComponent],
@@ -31,6 +33,8 @@ import { AppRoutingModule } from './app.routes';
   ],
   providers: [
     //{ provide: APP_BASE_HREF, useValue: '/' }
+    AuthGuard,
+    CadastroGuard,
   ],
   bootstrap: [AppComponent],
 })
