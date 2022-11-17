@@ -32,7 +32,7 @@ import { CadastroGuard } from './services/cadastros-guard';
     AppRoutingModule,
   ],
   providers: [
-    //{ provide: APP_BASE_HREF, useValue: '/' }
+    //{ provide: APP_BASE_HREF, useValue: '/' },
     AuthGuard,
     CadastroGuard,
   ],

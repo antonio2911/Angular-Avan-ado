@@ -12,7 +12,8 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthGuard implements CanLoad, CanActivate {
-  user = { admin: true, logged: false };
+  //condições para bloquear ou ativar o menu de administrador
+  user = { admin: true, logged: true };
   canLoad(): boolean {
     return this.user.admin;
   }

@@ -31,6 +31,13 @@ const rootRouterConfig: Routes = [
     canActivate: [AuthGuard],
     // canLoad devine se uma parte da aplicação deve ser carregada ou não.
   },
+  {
+    path: 'filmes',
+    loadChildren: () =>
+      import('./demos/pipesCustomizados/pipe.module').then(
+        (modulo) => modulo.PipeModule
+      ),
+  },
   { path: '**', component: NotFoundComponent },
   //loadchildren () => import(caminho do modulo)
   //.then(class => class.nome da classe) porque em um arquivo pode ter mais que um export
