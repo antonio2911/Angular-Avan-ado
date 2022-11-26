@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Provider } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 
 //para funcionar os formularios reativos importa o reactforms
@@ -18,7 +18,9 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
 import { AppRoutingModule } from './app.routes';
 import { AuthGuard } from './services/app-guard';
 import { CadastroGuard } from './services/cadastros-guard';
-
+import { BarModule } from './demos/bar-di-zones/bar.module';
+import { BarService } from './demos/bar-di-zones/bar.service';
+//export const BAR_PROVIDERS: Provider[] = [BarService];
 @NgModule({
   declarations: [AppComponent, SobreComponent, CadastroComponent],
   imports: [
@@ -30,11 +32,17 @@ import { CadastroGuard } from './services/cadastros-guard';
     CustomFormsModule,
     NavegacaoModule,
     AppRoutingModule,
+    //usando o module do metodo.
+    BarModule.forRoot({
+      unidadeId: 1000,
+      unidadeToken: 'd38gn358ddsdaf934nhfalkvje',
+    }),
   ],
   providers: [
     //{ provide: APP_BASE_HREF, useValue: '/' },
     AuthGuard,
     CadastroGuard,
+    //  BAR_PROVIDERS, apenas exemplo mostrando outra forma de passar um provider ou uma coleção de provider
   ],
   bootstrap: [AppComponent],
 })

@@ -17,7 +17,7 @@ const produtoRotas: Routes = [
         resolve: { produtos: ProdutosResolve },
         data: { teste: 'informacao' },
       },
-      { path: 'editar/:id', component: EditarProdutoComponent },
+      { path: ':estado/editar/:id', component: EditarProdutoComponent },
     ],
   },
 ];

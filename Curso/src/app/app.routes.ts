@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { NotFoundComponent } from './navegacao/notFound.component';
 import { AuthGuard } from './services/app-guard';
 import { CadastroGuard } from './services/cadastros-guard';
+import { BarComponent } from './demos/bar-di-zones/bar.component';
 
 const rootRouterConfig: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -38,13 +39,14 @@ const rootRouterConfig: Routes = [
         (modulo) => modulo.PipeModule
       ),
   },
+  { path: 'bar', component: BarComponent },
   { path: '**', component: NotFoundComponent },
   //loadchildren () => import(caminho do modulo)
   //.then(class => class.nome da classe) porque em um arquivo pode ter mais que um export
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(rootRouterConfig, { enableTracing: true })],
+  imports: [RouterModule.forRoot(rootRouterConfig, { enableTracing: false })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
