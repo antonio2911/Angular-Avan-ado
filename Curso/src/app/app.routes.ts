@@ -40,6 +40,13 @@ const rootRouterConfig: Routes = [
       ),
   },
   { path: 'bar', component: BarComponent },
+  {
+    path: 'todo',
+    loadChildren: () =>
+      import('./demos/todo-list/todo.module').then(
+        (modulo) => modulo.TodoModule
+      ),
+  },
   { path: '**', component: NotFoundComponent },
   //loadchildren () => import(caminho do modulo)
   //.then(class => class.nome da classe) porque em um arquivo pode ter mais que um export
