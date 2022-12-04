@@ -4,7 +4,7 @@
       "id": 1,
       "nome": "Responder e-mails",
       "finalizado": false,
-      "iniciado": true
+      "iniciado": false
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "id": 3,
       "nome": "Tarefas Principais",
       "finalizado": false,
-      "iniciado": true
+      "iniciado": false
     },
     {
       "id": 4,
@@ -28,7 +28,19 @@
       "id": 5,
       "nome": "Reuniao Gerencia",
       "finalizado": false,
-      "iniciado": true
+      "iniciado": false
+    },
+    {
+      "id": 6,
+      "nome": "Pagar Conta Aline",
+      "finalizado": false,
+      "iniciado": false
+    },
+    {
+      "id": 7,
+      "nome": "Jbl PartyBox 110",
+      "finalizado": false,
+      "iniciado": false
     }
   ]
 }

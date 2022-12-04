@@ -8,6 +8,7 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoComponent } from './todo.component';
 import { RoutingTodoModule } from './todo.routes';
 import { TodoServices } from './todo.service';
+import { Store } from './todo.store';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { TodoServices } from './todo.service';
     TodoListComponent,
   ],
   imports: [CommonModule, HttpClientModule, RoutingTodoModule],
-  providers: [TodoServices],
+  providers: [TodoServices, Store],
   exports: [],
 })
 export class TodoModule {}

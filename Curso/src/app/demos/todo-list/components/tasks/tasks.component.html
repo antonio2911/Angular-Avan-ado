@@ -1,3 +1,5 @@
 <div class="task">
-  <todo-list [list]="todoList$ | async">Tarefas</todo-list>
+  <todo-list [list]="todoList$ | async" (eventOutput)="ReceberOutput($event)"
+    >Tarefas</todo-list
+  >
 </div>

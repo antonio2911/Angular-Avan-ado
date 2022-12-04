@@ -1,3 +1,7 @@
 <div class="task">
-  <todo-list>Tarefas Iniciadas</todo-list>
+  <todo-list
+    [list]="inicializadas$ | async"
+    (eventOutput)="movimentarTarefa($event)"
+    >Tarefas Iniciadas</todo-list
+  >
 </div>
