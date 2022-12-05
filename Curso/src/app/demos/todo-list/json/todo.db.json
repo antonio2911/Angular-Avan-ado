@@ -4,31 +4,31 @@
       "id": 1,
       "nome": "Responder e-mails",
       "finalizado": false,
-      "iniciado": false
+      "iniciado": true
     },
     {
       "id": 2,
       "nome": "Finalizar Angular",
       "finalizado": false,
-      "iniciado": true
+      "iniciado": false
     },
     {
       "id": 3,
       "nome": "Tarefas Principais",
       "finalizado": false,
-      "iniciado": false
+      "iniciado": true
     },
     {
       "id": 4,
       "nome": "Prioridades",
       "finalizado": false,
-      "iniciado": true
+      "iniciado": false
     },
     {
       "id": 5,
       "nome": "Reuniao Gerencia",
       "finalizado": false,
-      "iniciado": false
+      "iniciado": true
     },
     {
       "id": 6,
