@@ -1,53 +1,51 @@
-import { HttpClient } from '@angular/common/http';
-import { TestBed } from '@angular/core/testing';
+import { HttpClient } from "@angular/common/http";
+import { TestBed } from "@angular/core/testing";
+import { Observable, Observer } from "rxjs";
+import { Task } from "./task";
+import { TasksService } from "./todo.service";
+import { Store } from "./todo.store";
 
-import { Observable, Observer } from 'rxjs';
-import { TasksService } from './todo.service';
-import { Store } from './todo.store';
-import { Task } from './task';
+const todoList: Task[] = [
+  { id: 1, nome: "Reponder E-mails", iniciado: false, finalizado: true },
+];
 
-const todolist: Task[] = [{ "id": 1, "nome": "Responder e-mails", "finalizado": true, "iniciado": false }];
-
+//simular um observable de um objeto comum para metodos http
 function createResponse(body) {
-    return Observable.create((observer: Observer<any>) => {
-        observer.next(body);
-    });
+  return Observable.create((observer: Observer<any>) => {
+    observer.next(body);
+  });
 }
 
+//criada apenas para substituir o get do http para o get dessa classe pelo useClasse
 class MockHttp {
-    get() {
-        return createResponse(todolist);
-    }
+  get() {
+    return createResponse(todoList);
+  }
 }
 
-describe('TasksService', () => {
+describe("Task Service", () => {
+  let service: TasksService;
+  let http: HttpClient;
 
-    let service: TasksService;
-    let http: HttpClient;
-
-    beforeEach(() => {
-        const bed = TestBed.configureTestingModule({
-            providers: [
-                { provide: HttpClient, useClass: MockHttp },
-                TasksService,
-                Store
-            ]
-        });
-        http = bed.get(HttpClient);
-        service = bed.get(TasksService);
+  beforeEach(() => {
+    const bed = TestBed.configureTestingModule({
+      providers: [
+        { provide: HttpClient, useClass: MockHttp },
+        TasksService,
+        Store,
+      ],
     });
+    http = bed.get(HttpClient);
+    service = bed.get(TasksService);
+  });
 
-    it('Deve retornar lista de tarefas', () => {
-        //spyOn(http, 'get').and.returnValue(createResponse(todolist));
-
-        service.getTodoList$
-            .subscribe((result) => {
-                expect(result.length).toBe(1);
-                console.log(result);
-                console.log(todolist);
-
-                expect(result).toEqual(todolist);
-            });
+  it("deve retornar uma lista de tarefas", () => {
+    spyOn(http, "get").and.returnValue(createResponse(todoList));
+    service.getTodoList$.subscribe((listaDeTarefas) => {
+      expect(listaDeTarefas.length).toBe(1);
+      console.log("Lista de tarefas", listaDeTarefas);
+      console.log("todolist =>", todoList);
+      expect(listaDeTarefas).toEqual(todoList);
     });
-
+  });
 });
