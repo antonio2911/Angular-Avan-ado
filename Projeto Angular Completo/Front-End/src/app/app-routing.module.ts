@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './navegacao/home/home.component';
+import { NotFoundComponent } from './navegacao/notFound/not-found.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  //redirect para a home se todo o caminho da url estiver vazio = (pathMatch: full)
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+
+  { path: '**', component: NotFoundComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
