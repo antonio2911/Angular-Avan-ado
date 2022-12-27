@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D9pdckZ9vidpqtNXekz/PH5qyvpgX9Ta927jlRzXoZlZKIDl5RsMlo8Dbyl0D5es3K7hH8bWsNXeG48VPZP3bQ==",
+  "dgSpecHash": "DkfoXZm01N4aNAHwQFKlIf9wV1YZDW85ePlBQzJv74PBUFdIop2eQ5xTjOxoZdmmvLTt89UGl3gOJo+8S5vp5g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Api\\DevIO.Api.csproj",
+  "projectFilePath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Api\\DevIO.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\antonio.pardim\\.nuget\\packages\\aspnetcore.healthchecks.sqlserver\\3.1.1\\aspnetcore.healthchecks.sqlserver.3.1.1.nupkg.sha512",
     "C:\\Users\\antonio.pardim\\.nuget\\packages\\aspnetcore.healthchecks.ui\\3.1.0\\aspnetcore.healthchecks.ui.3.1.0.nupkg.sha512",
@@ -193,8 +193,7 @@
     "C:\\Users\\antonio.pardim\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\antonio.pardim\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\antonio.pardim\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\antonio.pardim\\.nuget\\packages\\yamldotnet\\6.0.0\\yamldotnet.6.0.0.nupkg.sha512",
-    "C:\\Users\\antonio.pardim\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.31\\microsoft.netcore.app.host.win-x64.3.1.31.nupkg.sha512"
+    "C:\\Users\\antonio.pardim\\.nuget\\packages\\yamldotnet\\6.0.0\\yamldotnet.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }
