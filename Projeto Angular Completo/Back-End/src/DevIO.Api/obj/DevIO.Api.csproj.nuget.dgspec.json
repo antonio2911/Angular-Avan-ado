@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Api\\DevIO.Api.csproj": {}
+    "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Api\\DevIO.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Api\\DevIO.Api.csproj": {
+    "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Api\\DevIO.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Api\\DevIO.Api.csproj",
+        "projectUniqueName": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Api\\DevIO.Api.csproj",
         "projectName": "DevIO.Api",
-        "projectPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Api\\DevIO.Api.csproj",
+        "projectPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Api\\DevIO.Api.csproj",
         "packagesPath": "C:\\Users\\antonio.pardim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Api\\obj\\",
+        "outputPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,11 +32,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Business\\DevIO.Business.csproj": {
-                "projectPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Business\\DevIO.Business.csproj"
+              "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Business\\DevIO.Business.csproj": {
+                "projectPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Business\\DevIO.Business.csproj"
               },
-              "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Data\\DevIO.Data.csproj": {
-                "projectPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Data\\DevIO.Data.csproj"
+              "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Data\\DevIO.Data.csproj": {
+                "projectPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Data\\DevIO.Data.csproj"
               }
             }
           }
@@ -130,10 +130,17 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.31, 3.1.31]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -142,18 +149,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Business\\DevIO.Business.csproj": {
+    "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Business\\DevIO.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Business\\DevIO.Business.csproj",
+        "projectUniqueName": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Business\\DevIO.Business.csproj",
         "projectName": "DevIO.Business",
-        "projectPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Business\\DevIO.Business.csproj",
+        "projectPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Business\\DevIO.Business.csproj",
         "packagesPath": "C:\\Users\\antonio.pardim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Business\\obj\\",
+        "outputPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -197,7 +204,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -206,18 +214,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Data\\DevIO.Data.csproj": {
+    "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Data\\DevIO.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Data\\DevIO.Data.csproj",
+        "projectUniqueName": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Data\\DevIO.Data.csproj",
         "projectName": "DevIO.Data",
-        "projectPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Data\\DevIO.Data.csproj",
+        "projectPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Data\\DevIO.Data.csproj",
         "packagesPath": "C:\\Users\\antonio.pardim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Data\\obj\\",
+        "outputPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -238,8 +246,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Business\\DevIO.Business.csproj": {
-                "projectPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Business\\DevIO.Business.csproj"
+              "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Business\\DevIO.Business.csproj": {
+                "projectPath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Business\\DevIO.Business.csproj"
               }
             }
           }
@@ -273,7 +281,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -282,7 +291,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

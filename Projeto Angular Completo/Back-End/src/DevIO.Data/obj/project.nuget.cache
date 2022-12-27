@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+vdmzIdDUjGvZ0DPK5277RHE0Fw8v37XM6z5cjlF6sMs2rDULgyIPxad+NtGxzoX3NtGRz7RZ3cSErVTmDXqQA==",
+  "dgSpecHash": "BODupf6CB9h8d5D015m1L2PAzZZ7nucqWEBDF9KQGxRr9hALOawK+NJyiJZ2IrE5Qtxx6RLOIhXHkIxxW4euIQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back-End\\src\\DevIO.Data\\DevIO.Data.csproj",
+  "projectFilePath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\Back End\\src\\DevIO.Data\\DevIO.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\antonio.pardim\\.nuget\\packages\\fluentvalidation\\8.6.2\\fluentvalidation.8.6.2.nupkg.sha512",
     "C:\\Users\\antonio.pardim\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
