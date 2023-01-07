@@ -12,6 +12,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CustomValidators } from 'ngx-custom-validators';
 import { fromEvent, merge, Observable } from 'rxjs';
 import {
@@ -29,7 +30,7 @@ import { ContaService } from '../services/conta.service';
 })
 export class CadastroComponent implements OnInit, AfterViewInit {
   @ViewChildren(FormControlName, { read: ElementRef })
-  formsInputElements: ElementRef[];
+  formsInputElements!: ElementRef[];
 
   usuario: Usuario;
   cadastroForm: FormGroup;
@@ -37,7 +38,12 @@ export class CadastroComponent implements OnInit, AfterViewInit {
   validationMessages: ValidarMensagem = {};
   genericValidation: GenericValidation;
   displayMessage: DisplayMessage = {};
-  constructor(private fb: FormBuilder, private contaService: ContaService) {
+
+  constructor(
+    private fb: FormBuilder,
+    private contaService: ContaService,
+    private router: Router
+  ) {
     this.validationMessages = {
       email: {
         required: 'Informar o email',
@@ -89,7 +95,27 @@ export class CadastroComponent implements OnInit, AfterViewInit {
   adicionarConta() {
     if (this.cadastroForm.valid && this.cadastroForm.dirty) {
       this.usuario = Object.assign({}, this.cadastroForm.value);
-      this.contaService.registrarUsuario(this.usuario);
+      //um subscribe faz o processamento do sucesso e da falha
+      this.contaService.registrarUsuario(this.usuario).subscribe(
+        (sucesso) => {
+          this.processarSucesso(sucesso);
+        },
+        (falha) => {
+          this.processarFalha(falha);
+        }
+      );
     }
+  }
+
+  processarSucesso(response: any) {
+    this.cadastroForm.reset();
+    this.errors = [];
+
+    this.contaService.LocalStorage.salvarDadosLocaisUsuario(response);
+    this.router.navigate(['home']);
+  }
+
+  processarFalha(falha: any) {
+    this.errors = falha.error.errors;
   }
 }

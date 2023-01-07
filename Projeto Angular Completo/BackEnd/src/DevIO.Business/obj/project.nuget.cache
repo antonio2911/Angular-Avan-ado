@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "rYGggqNs+P74KxpmtbBU+a4HueUbZs8NYxLgndJTGm/S+iNcL2pfTdTkxYPk+eZ9OCLJUx7yhtB67cP2CzFKGg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\antonio.pardim\\Desktop\\Angular Avançado\\Projeto Angular Completo\\BackEnd\\src\\DevIO.Business\\DevIO.Business.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\antonio.pardim\\.nuget\\packages\\fluentvalidation\\8.6.2\\fluentvalidation.8.6.2.nupkg.sha512",
+    "C:\\Users\\antonio.pardim\\.nuget\\packages\\system.componentmodel.annotations\\4.4.1\\system.componentmodel.annotations.4.4.1.nupkg.sha512"
+  ],
+  "logs": []
+}
