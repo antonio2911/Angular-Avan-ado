@@ -6,7 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavegacaoModule } from './navegacao/navegacao.module';
 import { ContaModule } from './conta/conta.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -14,7 +16,9 @@ import { ContaModule } from './conta/conta.module';
     AppRoutingModule,
     NavegacaoModule,
     NgbModule,
-    ContaModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

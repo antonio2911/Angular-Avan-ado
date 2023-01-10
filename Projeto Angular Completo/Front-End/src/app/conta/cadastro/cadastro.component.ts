@@ -22,6 +22,7 @@ import {
 } from 'src/app/utils/genericsFormValidation';
 import { Usuario } from '../models/usuarios';
 import { ContaService } from '../services/conta.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cadastro',
@@ -38,11 +39,13 @@ export class CadastroComponent implements OnInit, AfterViewInit {
   validationMessages: ValidarMensagem = {};
   genericValidation: GenericValidation;
   displayMessage: DisplayMessage = {};
+  mudancasNaoSalvas: boolean;
 
   constructor(
     private fb: FormBuilder,
     private contaService: ContaService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.validationMessages = {
       email: {
@@ -89,6 +92,7 @@ export class CadastroComponent implements OnInit, AfterViewInit {
       this.displayMessage = this.genericValidation.processarMensagem(
         this.cadastroForm
       );
+      this.mudancasNaoSalvas = true;
     });
   }
 
@@ -104,6 +108,8 @@ export class CadastroComponent implements OnInit, AfterViewInit {
           this.processarFalha(falha);
         }
       );
+      //informação para a contaGuard
+      this.mudancasNaoSalvas = false;
     }
   }
 
@@ -112,10 +118,16 @@ export class CadastroComponent implements OnInit, AfterViewInit {
     this.errors = [];
 
     this.contaService.LocalStorage.salvarDadosLocaisUsuario(response);
-    this.router.navigate(['home']);
+    let toastr = this.toastr.success('Registro realizado com sucesso :)');
+    if (toastr) {
+      toastr.onHidden.subscribe(() => {
+        this.router.navigate(['home']);
+      });
+    }
   }
 
   processarFalha(falha: any) {
     this.errors = falha.error.errors;
+    this.toastr.error('Ocorreu um Error!, Opa :(');
   }
 }

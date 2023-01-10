@@ -1,9 +1,10 @@
+<!-- para a guarda de rota "guardRouter" funcionar corretamente não pode ter href no codigo  -->
 <header>
   <nav
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow"
   >
     <div class="container">
-      <a class="navbar-brand" href="/">Meus Produtos</a>
+      <a class="navbar-brand" [routerLink]="['/home']">Meus Produtos</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -22,16 +23,7 @@
       >
         <!--[ngbCollapse]="isCollapsed" => propriedade do bootstrap-->
         <ul class="navbar-nav">
-          <li class="nav-item" style="padding-right: 30px">
-            <a class="btn btn-primary" [routerLink]="['/conta/login']"
-              >Entrar</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-success" [routerLink]="['/conta/cadastro']"
-              >Crie sua conta</a
-            >
-          </li>
+          <app-menu-login></app-menu-login>
         </ul>
         <ul class="navbar-nav flex-grow-1">
           <li class="nav-item">

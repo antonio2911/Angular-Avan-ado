@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ContaService } from './services/conta.service';
 import { CustomFormsModule } from 'ngx-custom-validators';
+import { ContaGuard } from './services/conta.guard';
 
 @NgModule({
   declarations: [CadastroComponent, LoginComponent, ContaAppComponent],
@@ -21,6 +22,6 @@ import { CustomFormsModule } from 'ngx-custom-validators';
     HttpClientModule,
     CustomFormsModule,
   ],
-  providers: [ContaService],
+  providers: [ContaService, ContaGuard],
 })
 export class ContaModule {}

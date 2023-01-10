@@ -1,0 +1,23 @@
+<ul [ngSwitch]="usuarioLogado()" class="navbar-nav">
+  <li *ngSwitchCase="false" class="navbar-item" style="padding-right: 30px">
+    <a [routerLink]="['/conta/login']" class="btn btn-primary">Entrar</a>
+  </li>
+  <li *ngSwitchCase="false" class="navbar-item">
+    <a [routerLink]="['/conta/cadastro']" class="btn btn-success"
+      >Crie sua conta</a
+    >
+  </li>
+  <li *ngSwitchCase="true" class="navbar-item">
+    <a
+      class="nav-link text-dark"
+      id="saudacaoUsuario"
+      href="javascript:void(0)"
+      >{{ email }}</a
+    >
+  </li>
+  <li *ngSwitchCase="true" class="navbar-item">
+    <a class="nav-link text-dark" href="javascript:void(0)" (click)="logout()"
+      >Sair <span class="fas fa-sign-out-alt"></span
+    ></a>
+  </li>
+</ul>
