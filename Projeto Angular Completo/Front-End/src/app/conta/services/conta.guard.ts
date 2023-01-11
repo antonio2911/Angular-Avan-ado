@@ -25,7 +25,7 @@ export class ContaGuard
     }
     return true;
   }
-  // não deixar o usuario navegar de login para cadastro proteção
+  // não deixar o usuario navegar de login ou cadastro se o usuario ja estiver logado
   canActivate() {
     if (this.localStorage.obterTokenUsuario()) {
       this.router.navigate(['/home']);
