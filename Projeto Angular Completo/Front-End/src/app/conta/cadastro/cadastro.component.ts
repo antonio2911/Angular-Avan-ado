@@ -1,114 +1,79 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChildren,
-} from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormControlName,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component, OnInit, AfterViewInit, ViewChildren, ElementRef } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormControl, FormControlName } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CustomValidators } from 'ngx-custom-validators';
-import { fromEvent, merge, Observable } from 'rxjs';
-import {
-  DisplayMessage,
-  GenericValidation,
-  ValidarMensagem,
-} from 'src/app/utils/genericsFormValidation';
-import { Usuario } from '../models/usuarios';
-import { ContaService } from '../services/conta.service';
+
+import { CustomValidators } from '@narik/custom-validators';
 import { ToastrService } from 'ngx-toastr';
+
+import { Usuario } from '../models/usuario';
+import { ContaService } from '../services/conta.service';
+
+import { FormBaseComponent } from 'src/app/base-components/form-base.component';
 
 @Component({
   selector: 'app-cadastro',
-  templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css'],
+  templateUrl: './cadastro.component.html'
 })
-export class CadastroComponent implements OnInit, AfterViewInit {
-  @ViewChildren(FormControlName, { read: ElementRef })
-  formsInputElements!: ElementRef[];
+export class CadastroComponent extends FormBaseComponent implements OnInit, AfterViewInit {
 
-  usuario: Usuario;
-  cadastroForm: FormGroup;
+  @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];
+
   errors: any[] = [];
-  validationMessages: ValidarMensagem = {};
-  genericValidation: GenericValidation;
-  displayMessage: DisplayMessage = {};
-  mudancasNaoSalvas: boolean;
+  cadastroForm: FormGroup;
+  usuario: Usuario;
 
-  constructor(
-    private fb: FormBuilder,
+  constructor(private fb: FormBuilder,
     private contaService: ContaService,
     private router: Router,
-    private toastr: ToastrService
-  ) {
+    private toastr: ToastrService) {
+
+    super();
+
     this.validationMessages = {
       email: {
-        required: 'Informar o email',
-        email: 'E-mail invalido',
+        required: 'Informe o e-mail',
+        email: 'Email inválido'
       },
       password: {
         required: 'Informe a senha',
-        rangeLength: 'A senha deve possui entre 6 e 15 caracteres.',
+        rangeLength: 'A senha deve possuir entre 6 e 15 caracteres'
       },
       confirmPassword: {
         required: 'Informe a senha novamente',
         rangeLength: 'A senha deve possuir entre 6 e 15 caracteres',
-        equalTo: 'As senhas não conferem',
-      },
+        equalTo: 'As senhas não conferem'
+      }
     };
-    this.genericValidation = new GenericValidation(this.validationMessages);
+
+    super.configurarMensagensValidacaoBase(this.validationMessages);
   }
 
   ngOnInit(): void {
-    let senha = new FormControl('', [
-      Validators.required,
-      CustomValidators.rangeLength([6, 15]),
-    ]);
-    let confirmsenha = new FormControl('', [
-      Validators.required,
-      CustomValidators.rangeLength([6, 15]),
-      CustomValidators.equalTo(senha),
-    ]);
+
+    let senha = new FormControl('', [Validators.required, CustomValidators.rangeLength([6, 15])]);
+    let senhaConfirm = new FormControl('', [Validators.required, CustomValidators.rangeLength([6, 15]), CustomValidators.equalTo(senha)]);
 
     this.cadastroForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: senha,
-      confirmPassword: confirmsenha,
+      confirmPassword: senhaConfirm
     });
   }
 
   ngAfterViewInit(): void {
-    let controlsBlurs: Observable<any>[] = this.formsInputElements.map(
-      (formsControl: ElementRef) =>
-        fromEvent(formsControl.nativeElement, 'blur')
-    );
-    merge(...controlsBlurs).subscribe(() => {
-      this.displayMessage = this.genericValidation.processarMensagem(
-        this.cadastroForm
-      );
-      this.mudancasNaoSalvas = true;
-    });
+    super.configurarValidacaoFormularioBase(this.formInputElements, this.cadastroForm);
   }
 
   adicionarConta() {
-    if (this.cadastroForm.valid && this.cadastroForm.dirty) {
-      this.usuario = Object.assign({}, this.cadastroForm.value);
-      //um subscribe faz o processamento do sucesso e da falha
-      this.contaService.registrarUsuario(this.usuario).subscribe(
-        (sucesso) => {
-          this.processarSucesso(sucesso);
-        },
-        (falha) => {
-          this.processarFalha(falha);
-        }
-      );
-      //informação para a contaGuard
+    if (this.cadastroForm.dirty && this.cadastroForm.valid) {
+      this.usuario = Object.assign({}, this.usuario, this.cadastroForm.value);
+
+      this.contaService.registrarUsuario(this.usuario)
+        .subscribe(
+          sucesso => { this.processarSucesso(sucesso) },
+          falha => { this.processarFalha(falha) }
+        );
+
       this.mudancasNaoSalvas = false;
     }
   }
@@ -118,16 +83,17 @@ export class CadastroComponent implements OnInit, AfterViewInit {
     this.errors = [];
 
     this.contaService.LocalStorage.salvarDadosLocaisUsuario(response);
-    let toastr = this.toastr.success('Registro realizado com sucesso :)');
-    if (toastr) {
-      toastr.onHidden.subscribe(() => {
-        this.router.navigate(['home']);
+
+    let toast = this.toastr.success('Registro realizado com Sucesso!', 'Bem vindo!!!');
+    if (toast) {
+      toast.onHidden.subscribe(() => {
+        this.router.navigate(['/home']);
       });
     }
   }
 
-  processarFalha(falha: any) {
-    this.errors = falha.error.errors;
-    this.toastr.error('Ocorreu um Error!, Opa :(');
+  processarFalha(fail: any) {
+    this.errors = fail.error.errors;
+    this.toastr.error('Ocorreu um erro!', 'Opa :(');
   }
 }
